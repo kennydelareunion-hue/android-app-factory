@@ -19,7 +19,7 @@ Template Android Kotlin + Jetpack Compose, optimisé pour Termux + GitHub Action
 - Ne jamais commiter de keystore, mot de passe ou `local.properties`.
 - Utiliser GitHub Actions pour les builds longs ; Termux sert à éditer et pousser.
 - Toujours lancer `./harness check` avant un commit si l'environnement local le permet.
-- Garder les tests UI basés sur des assertions, pas seulement des captures.
+- Garder les tests UI basés sur des assertions, et utiliser `UI Smoke` pour la capture `home.png`.
 - Vérifier `gh run list` et `gh run view --log-failed` en cas d'échec CI.
 
 ## Version et release

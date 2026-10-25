@@ -37,6 +37,8 @@ Options :
 
 Le script copie le template, renomme le package et l'application, crée le repo GitHub, configure les secrets de signature et pousse sur `main`.
 
+Les scripts et `harness` utilisent un shebang Termux. Sur Linux, lancer avec `bash`.
+
 ## Signature
 
 Le keystore local se trouve dans `~/.android-app-factory/` et n'est jamais commité.
@@ -63,3 +65,10 @@ Le workflow `Release` construit l'APK signé, vérifie la signature et crée la 
 - `harness` : commandes `check`, `build`, `test`, `lint`, `ui`, `release`.
 - `scripts/` : création d'app et configuration des secrets.
 - `AGENTS.md` : instructions pour opencode.
+
+## Exemple validé
+
+- Usine : https://github.com/kennydelareunion-hue/android-app-factory
+- App générée : https://github.com/kennydelareunion-hue/factory-demo
+- Release signée : https://github.com/kennydelareunion-hue/factory-demo/releases/tag/v0.1.0
+- UI smoke + capture : onglet Actions du repo généré, workflow `UI Smoke`.
