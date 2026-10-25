@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")"
+
+case "${1:-check}" in
+    check)
+        ./gradlew lintDebug testDebugUnitTest assembleDebug --stacktrace
+        ;;
+    build)
+        ./gradlew assembleDebug --stacktrace
+        ;;
+    test)
+        ./gradlew testDebugUnitTest --stacktrace
+        ;;
+    lint)
+        ./gradlew lintDebug --stacktrace
+        ;;
+    ui)
+        ./gradlew connectedDebugAndroidTest --stacktrace
+        ;;
+    release)
+        ./gradlew assembleRelease --stacktrace
+        ;;
+    clean)
+        ./gradlew clean
+        ;;
+    *)
+        echo "Usage: ./harness {check|build|test|lint|ui|release|clean}" >&2
+        exit 1
+        ;;
+esac
