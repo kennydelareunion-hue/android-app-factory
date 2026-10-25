@@ -42,9 +42,7 @@ jobs:
           profile: pixel_7
           disable-animations: true
           script: |
-            set -e
-            ./gradlew connectedDebugAndroidTest --stacktrace
-            PACKAGE="$(grep -m1 'applicationId = ' app/build.gradle.kts | sed 's/.*"\(.*\)".*/\1/')"; mkdir -p screenshots; adb pull "/sdcard/Android/data/$PACKAGE/files/screenshots" screenshots || true
+            set -e; PACKAGE="$(grep -m1 'applicationId = ' app/build.gradle.kts | sed 's/.*"\(.*\)".*/\1/')"; ./gradlew installDebug --stacktrace; adb shell am start -W -n "$PACKAGE/.MainActivity"; sleep 2; mkdir -p screenshots; adb exec-out screencap -p > screenshots/home.png; ./gradlew connectedDebugAndroidTest --stacktrace
 
       - name: Upload test results
         if: always()
