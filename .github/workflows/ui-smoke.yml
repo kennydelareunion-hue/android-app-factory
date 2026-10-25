@@ -44,9 +44,7 @@ jobs:
           script: |
             set -e
             ./gradlew connectedDebugAndroidTest --stacktrace
-            PACKAGE="$(grep -m1 'applicationId = ' app/build.gradle.kts | sed 's/.*"\(.*\)".*/\1/')"
-            mkdir -p screenshots
-            adb pull "/sdcard/Android/data/$PACKAGE/files/screenshots" screenshots || true
+            PACKAGE="$(grep -m1 'applicationId = ' app/build.gradle.kts | sed 's/.*"\(.*\)".*/\1/')"; mkdir -p screenshots; adb pull "/sdcard/Android/data/$PACKAGE/files/screenshots" screenshots || true
 
       - name: Upload test results
         if: always()
