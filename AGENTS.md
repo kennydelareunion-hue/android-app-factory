@@ -6,6 +6,7 @@ Template Android Kotlin + Jetpack Compose, optimisé pour Termux + GitHub Action
 
 ## Commandes
 
+- `./scripts/doctor.sh` : vérifie Java, Gradle, GitHub, keystore et secrets.
 - `./harness check` : lint + tests unitaires + APK debug.
 - `./harness build` : APK debug.
 - `./harness test` : tests unitaires.

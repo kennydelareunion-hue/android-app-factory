@@ -13,6 +13,7 @@ Template Android Kotlin/Compose + GitHub Actions pour créer, tester et publier 
 ## Démarrage rapide
 
 ```bash
+./scripts/doctor.sh
 ./harness check
 ```
 
@@ -70,5 +71,6 @@ Le workflow `Release` construit l'APK signé, vérifie la signature et crée la 
 
 - Usine : https://github.com/kennydelareunion-hue/android-app-factory
 - App générée : https://github.com/kennydelareunion-hue/factory-demo
-- Release signée : https://github.com/kennydelareunion-hue/factory-demo/releases/tag/v0.1.0
+- Release signée : https://github.com/kennydelareunion-hue/factory-demo/releases/tag/v0.1.1
+- Validation : `v0.1.0` et `v0.1.1` ont le même certificat, `versionCode` 1 puis 2.
 - UI smoke + capture : onglet Actions du repo généré, workflow `UI Smoke`.
