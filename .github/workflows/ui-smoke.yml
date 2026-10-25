@@ -41,7 +41,12 @@ jobs:
           arch: x86_64
           profile: pixel_7
           disable-animations: true
-          script: ./gradlew connectedDebugAndroidTest --stacktrace
+          script: |
+            set -e
+            ./gradlew connectedDebugAndroidTest --stacktrace
+            PACKAGE="$(grep -m1 'applicationId = ' app/build.gradle.kts | sed 's/.*"\(.*\)".*/\1/')"
+            mkdir -p screenshots
+            adb pull "/sdcard/Android/data/$PACKAGE/files/screenshots" screenshots || true
 
       - name: Upload test results
         if: always()
@@ -49,4 +54,12 @@ jobs:
         with:
           name: ui-test-results
           path: app/build/outputs/androidTest-results
+          retention-days: 14
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ui-screenshots
+          path: screenshots
           retention-days: 14

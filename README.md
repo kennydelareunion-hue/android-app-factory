@@ -6,7 +6,7 @@ Template Android Kotlin/Compose + GitHub Actions pour créer, tester et publier 
 
 - `CI` : lint, tests unitaires et APK debug à chaque push, avec artifacts téléchargeables.
 - `Release` : APK release signé et GitHub Release sur un tag `v*`.
-- `UI Smoke` : test Compose sur émulateur, à la demande ou chaque nuit.
+- `UI Smoke` : test Compose sur émulateur + capture d’écran, à la demande ou chaque nuit.
 - `harness` : commandes locales standardisées.
 - `scripts/new-app.sh` : crée un nouveau repo à partir du template, configure les secrets de signature et pousse le premier commit.
 
